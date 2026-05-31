@@ -15,7 +15,7 @@ export class LanternService {
     ),
     new Lantern(
       '2',
-      'M850',
+      'PMAPI-M850',
       'LED Marine Lantern',
       'assets/images/lanterns/m850.webp',
       'https://example.com/m850.pdf'
