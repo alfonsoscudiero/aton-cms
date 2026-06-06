@@ -1,1 +1,31 @@
-<p>lantern-detail works!</p>
+<div *ngIf="lantern" class="lantern-detail-card">
+  <div class="detail-header">
+    <div>
+      <h2>{{ lantern.model }}</h2>
+      <p>{{ lantern.type }}</p>
+    </div>
+
+    <img
+      [src]="lantern.imageUrl"
+      [alt]="lantern.model"
+      class="lantern-image"
+    />
+  </div>
+
+  <div class="detail-actions">
+    <a
+      class="btn btn-aton-primary"
+      [href]="lantern.datasheetUrl"
+      target="_blank">
+      View
+    </a>
+
+    <a class="btn btn-outline-primary">
+      Edit
+    </a>
+
+    <button class="btn btn-outline-danger">
+      Delete
+    </button>
+  </div>
+</div>
