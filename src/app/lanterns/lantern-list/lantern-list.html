@@ -1,5 +1,6 @@
 <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
+
+  <div class="card-header d-flex justify-content-between align-items-center">
     <h2>Marine Lanterns</h2>
 
     <button class="btn btn-success">
@@ -8,14 +9,16 @@
   </div>
 
   <div class="card-body">
+
     <div
       *ngFor="let lantern of lanterns"
       class="lantern-row"
+      [class.active]="lantern.id === selectedLantern?.id"
       (click)="onSelectedLantern(lantern)"
     >
       <p>{{ lantern.model }} - {{ lantern.type }}</p>
     </div>
-  </div>
 
+  </div>
 
 </div>

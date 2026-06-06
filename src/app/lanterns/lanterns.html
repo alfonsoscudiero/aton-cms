@@ -2,11 +2,12 @@
   <div class="row g-5">
     <div class="col-md-6">
       <aton-lantern-list
+        [selectedLantern]="selectedLantern"
         (lanternSelected)="onLanternSelected($event)">
       </aton-lantern-list>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-5">
       <aton-lantern-detail 
         [lantern]="selectedLantern">        
       </aton-lantern-detail>

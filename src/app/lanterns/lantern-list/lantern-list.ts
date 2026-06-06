@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { Lantern } from '../lantern.model';
 import { LanternService } from '../lantern.service';
 
@@ -9,7 +9,11 @@ import { LanternService } from '../lantern.service';
   styleUrl: './lantern-list.css',
 })
 export class LanternList implements OnInit {
+
   lanterns: Lantern[] = [];
+
+  @Input() selectedLantern?: Lantern;
+
   @Output() lanternSelected = new EventEmitter<Lantern>();
 
   constructor(private lanternService: LanternService) {}
