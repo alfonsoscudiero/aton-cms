@@ -4,8 +4,14 @@
   </div>
 
   <div class="card-body">
-    <div *ngFor="let lantern of lanterns">
+    <div
+      *ngFor="let lantern of lanterns"
+      class="lantern-row"
+      (click)="onSelectedLantern(lantern)"
+    >
       <p>{{ lantern.model }} - {{ lantern.type }}</p>
     </div>
   </div>
+
+
 </div>
