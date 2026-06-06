@@ -12,6 +12,7 @@ export class Lanterns {
   selectedLantern?: Lantern;
 
   onLanternSelected(lantern: Lantern): void {
+    // console.log('Selected lantern:', lantern);
     this.selectedLantern = lantern;
   }
 
