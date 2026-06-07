@@ -11,7 +11,8 @@
     <div class="col-md-5">
       <aton-lantern-detail 
         *ngIf="!showEdit"
-        [lantern]="selectedLantern">        
+        [lantern]="selectedLantern"
+        (editLanternSelected)="onEditLantern()">                
       </aton-lantern-detail>
 
       <aton-lantern-edit
