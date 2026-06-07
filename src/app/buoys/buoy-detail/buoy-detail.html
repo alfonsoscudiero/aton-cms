@@ -1,1 +1,40 @@
-<p>buoy-detail works!</p>
+<div *ngIf="buoy" class="buoy-detail-card">
+  <div class="detail-header">
+    <div>
+      <h2>{{ buoy.model }}</h2>
+      <p>{{ buoy.type }}</p>
+    </div>
+
+    <img
+      [src]="buoy.imageUrl"
+      [alt]="buoy.model"
+      class="buoy-image"
+    />
+  </div>
+
+  <div class="detail-specs">
+    <p><strong>Diameter:</strong> {{ buoy.diameter }}</p>
+    <p><strong>Overall Height:</strong> {{ buoy.overallHeight }}</p>
+    <p><strong>Gross Buoyancy:</strong> {{ buoy.grossBuoyancy }}</p>
+  </div>
+
+  <div class="detail-actions">
+    <a
+      class="btn btn-aton-primary"
+      [href]="buoy.datasheetUrl"
+      target="_blank">
+      View
+    </a>
+
+    <a
+      class="btn btn-outline-primary"
+      [routerLink]="['/buoys', buoy.id, 'edit']">
+      Edit
+    </a>
+
+    <button
+      class="btn btn-outline-danger">
+      Delete
+    </button>
+  </div>
+</div>
