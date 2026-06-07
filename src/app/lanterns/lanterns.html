@@ -3,14 +3,20 @@
     <div class="col-md-6">
       <aton-lantern-list
         [selectedLantern]="selectedLantern"
-        (lanternSelected)="onLanternSelected($event)">
+        (lanternSelected)="onLanternSelected($event)"
+        (newLanternSelected)="onNewLantern()">
       </aton-lantern-list>
     </div>
 
     <div class="col-md-5">
       <aton-lantern-detail 
+        *ngIf="!showEdit"
         [lantern]="selectedLantern">        
       </aton-lantern-detail>
+
+      <aton-lantern-edit
+        *ngIf="showEdit">        
+      </aton-lantern-edit>
     </div>
   </div>
 </div>

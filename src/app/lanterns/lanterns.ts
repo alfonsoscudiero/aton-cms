@@ -10,8 +10,14 @@ import { Lantern } from './lantern.model';
 export class Lanterns {
 
   selectedLantern?: Lantern;
+  showEdit = false;
 
   onLanternSelected(lantern: Lantern): void {
     this.selectedLantern = lantern;
+  }
+
+  onNewLantern(): void {
+    this.selectedLantern = undefined;
+    this.showEdit = true;
   }
 }
