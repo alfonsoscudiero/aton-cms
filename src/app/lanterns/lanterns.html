@@ -12,7 +12,8 @@
       <aton-lantern-detail 
         *ngIf="!showEdit"
         [lantern]="selectedLantern"
-        (editLanternSelected)="onEditLantern()">                
+        (editLanternSelected)="onEditLantern()"
+        (deleteLanternSelected)="onDeleteLantern($event)">                
       </aton-lantern-detail>
 
       <aton-lantern-edit
