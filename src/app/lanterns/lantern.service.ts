@@ -11,4 +11,12 @@ export class LanternService {
   getLanterns(): Lantern[] {
     return this.lanterns.slice();
   }
+
+  deleteLantern(lantern: Lantern): void {
+    const index = this.lanterns.indexOf(lantern);
+
+    if (index >= 0) {
+      this.lanterns.splice(index, 1);
+    }
+  }
 }
