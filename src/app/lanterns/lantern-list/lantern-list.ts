@@ -20,6 +20,12 @@ export class LanternList implements OnInit {
   constructor(private lanternService: LanternService) {}
 
   ngOnInit(): void {
+    this.lanternService.lanternChangedEvent.subscribe(
+      (lanterns: Lantern[]) => {
+        this.lanterns = lanterns;
+      }
+    );
+
     this.lanterns = this.lanternService.getLanterns();
   }
 
