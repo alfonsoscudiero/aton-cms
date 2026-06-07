@@ -11,6 +11,10 @@ import { LanternList } from './lanterns/lantern-list/lantern-list';
 import { LanternItem } from './lanterns/lantern-item/lantern-item';
 import { LanternDetail } from './lanterns/lantern-detail/lantern-detail';
 import { LanternEdit } from './lanterns/lantern-edit/lantern-edit';
+import { BuoyList } from './buoys/buoy-list/buoy-list';
+import { BuoyItem } from './buoys/buoy-item/buoy-item';
+import { BuoyDetail } from './buoys/buoy-detail/buoy-detail';
+import { BuoyEdit } from './buoys/buoy-edit/buoy-edit';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { LanternEdit } from './lanterns/lantern-edit/lantern-edit';
     LanternItem,
     LanternDetail,
     LanternEdit,
+    BuoyList,
+    BuoyItem,
+    BuoyDetail,
+    BuoyEdit,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
