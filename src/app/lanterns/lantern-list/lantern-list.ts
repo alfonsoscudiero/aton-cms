@@ -15,6 +15,7 @@ export class LanternList implements OnInit {
   @Input() selectedLantern?: Lantern;
 
   @Output() lanternSelected = new EventEmitter<Lantern>();
+  @Output() newLanternSelected = new EventEmitter<void>();
 
   constructor(private lanternService: LanternService) {}
 
@@ -24,5 +25,9 @@ export class LanternList implements OnInit {
 
   onSelectedLantern(lantern: Lantern): void {
     this.lanternSelected.emit(lantern);
+  }
+
+  onNewLantern(): void {
+    this.newLanternSelected.emit();
   }
 }
