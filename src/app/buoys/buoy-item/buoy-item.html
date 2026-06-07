@@ -1,1 +1,6 @@
-<p>buoy-item works!</p>
+<div
+  class="buoy-row"
+  [routerLink]="['/buoys', buoy.id]"
+>
+  <p>{{ buoy.model }} - {{ buoy.type }}</p>
+</div>

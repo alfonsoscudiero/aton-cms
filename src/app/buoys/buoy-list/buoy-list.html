@@ -2,7 +2,7 @@
   <div
     class="card-header d-flex justify-content-between align-items-center"
   >
-    <h2>Navigation Buoys</h2>
+    <h2>Marine Buoys</h2>
 
     <button
       class="btn btn-success"
@@ -13,8 +13,9 @@
   </div>
 
   <div class="card-body">
-
-    <!-- Buoy items will go here -->
-
+    <aton-buoy-item
+      *ngFor="let buoy of buoys"
+      [buoy]="buoy">
+    </aton-buoy-item>
   </div>
 </div>
