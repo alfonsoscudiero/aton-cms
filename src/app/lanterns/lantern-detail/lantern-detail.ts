@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Lantern } from '../lantern.model';
 
 @Component({
@@ -10,5 +10,11 @@ import { Lantern } from '../lantern.model';
 export class LanternDetail {
 
   @Input() lantern?: Lantern;
+
+  @Output() editLanternSelected = new EventEmitter<void>();
+
+  onEditLantern(): void {
+    this.editLanternSelected.emit();
+  }
 
 }
