@@ -13,3 +13,10 @@
 .buoy-row p {
   margin: 0;
 }
+
+.buoy-row.active {
+  background-color: #e7f1ff;
+  border-left: 4px solid #0d6efd;
+  border-right: 4px solid #0d6efd;
+  font-weight: 600;
+}
