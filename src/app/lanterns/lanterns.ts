@@ -21,4 +21,8 @@ export class Lanterns {
     this.selectedLantern = undefined;
     this.showEdit = true;
   }
+
+  onEditLantern(): void {
+    this.showEdit = true;
+  }
 }
