@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Lantern } from './lantern.model';
+import { LanternService } from './lantern.service';
 
 @Component({
   selector: 'aton-lanterns',
@@ -11,6 +12,8 @@ export class Lanterns {
 
   selectedLantern?: Lantern;
   showEdit = false;
+
+  constructor(private lanternService: LanternService) {}
 
   onLanternSelected(lantern: Lantern): void {
     this.selectedLantern = lantern;
@@ -24,5 +27,11 @@ export class Lanterns {
 
   onEditLantern(): void {
     this.showEdit = true;
+  }
+
+  onDeleteLantern(lantern: Lantern): void {
+    this.lanternService.deleteLantern(lantern);
+    this.selectedLantern = undefined;
+    this.showEdit = false;
   }
 }
