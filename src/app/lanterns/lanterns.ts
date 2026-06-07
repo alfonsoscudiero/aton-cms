@@ -14,6 +14,7 @@ export class Lanterns {
 
   onLanternSelected(lantern: Lantern): void {
     this.selectedLantern = lantern;
+    this.showEdit = false;
   }
 
   onNewLantern(): void {
