@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Buoy } from '../buoy.model';
 import { BuoyService } from '../buoy.service';
@@ -15,6 +15,7 @@ export class BuoyDetail {
 
   constructor(
     private buoyService: BuoyService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -25,4 +26,12 @@ export class BuoyDetail {
     });
   }
 
+  onDeleteBuoy(): void {
+    if (!this.buoy) {
+      return;
+    }
+
+    this.buoyService.deleteBuoy(this.buoy);
+    this.router.navigate(['/buoys']);
+  }
 }
