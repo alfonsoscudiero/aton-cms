@@ -1,1 +1,31 @@
-<p>project-detail works!</p>
+<div class="card project-detail-card" *ngIf="project">
+  <div class="card-body">
+    <p><strong>Quote Number:</strong> {{ project.quoteNumber }}</p>
+    <!-- <p><strong>Completion Year:</strong> {{ project.completionDate }}</p> -->
+
+    <hr>
+
+    <p>{{ project.description }}</p>
+
+    <hr>
+
+    <h4>Lanterns Used</h4>
+    <ul>
+      <li *ngFor="let lantern of projectLanterns">
+        {{ lantern.model }} - {{ lantern.type }}
+      </li>
+    </ul>
+
+    <h4>Buoys Used</h4>
+    <ul>
+      <li *ngFor="let buoy of projectBuoys">
+        {{ buoy.model }} - {{ buoy.type }}
+      </li>
+    </ul>
+
+    <div class="detail-actions mt-4">
+      <button class="btn btn-primary me-2" (click)="onEditProject()">Edit</button>
+      <button class="btn btn-danger" (click)="onDeleteProject()">Delete</button>
+    </div>
+  </div>
+</div>
