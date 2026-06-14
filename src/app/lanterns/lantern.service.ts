@@ -14,6 +14,10 @@ export class LanternService {
     return this.lanterns.slice();
   }
 
+  getLantern(id: string): Lantern | null {
+    return this.lanterns.find(lantern => lantern.id === id) || null;
+  }
+
   deleteLantern(lantern: Lantern): void {
     if (!lantern) {
       return;
