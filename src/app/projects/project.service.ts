@@ -21,4 +21,19 @@ export class ProjectService {
       this.projects.find(project => project.id === id) || null
     );
   }
+
+  deleteProject(project: Project): void {
+    if (!project) {
+      return;
+    }
+
+    const index = this.projects.indexOf(project);
+
+    if (index < 0) {
+      return;
+    }
+
+    this.projects.splice(index, 1);
+    this.projectChangedEvent.next(this.projects.slice());
+  }
 }

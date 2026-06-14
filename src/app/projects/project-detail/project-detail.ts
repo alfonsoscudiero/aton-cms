@@ -51,6 +51,11 @@ export class ProjectDetail implements OnInit {
   }
 
   onDeleteProject(): void {
-    // delete functionality will be added later
+    if (!this.project) {
+      return;
+    }
+
+    this.projectService.deleteProject(this.project);
+    this.router.navigate(['/projects']);
   }
 }
