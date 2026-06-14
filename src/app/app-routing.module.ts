@@ -5,6 +5,7 @@ import { Lanterns } from './lanterns/lanterns';
 import { Buoys } from './buoys/buoys';
 import { BuoyDetail } from './buoys/buoy-detail/buoy-detail';
 import { BuoyEdit } from './buoys/buoy-edit/buoy-edit';
+import { Projects } from './projects/projects';
 
 const routes: Routes = [
   { path: '', redirectTo: '/lanterns', pathMatch: 'full' },
@@ -15,6 +16,9 @@ const routes: Routes = [
       { path: ':id', component: BuoyDetail },
       { path: ':id/edit', component: BuoyEdit }
     ]
+  },
+  {
+    path: 'projects', component: Projects
   },
 ];
 
