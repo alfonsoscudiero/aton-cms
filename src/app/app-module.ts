@@ -15,6 +15,10 @@ import { BuoyList } from './buoys/buoy-list/buoy-list';
 import { BuoyItem } from './buoys/buoy-item/buoy-item';
 import { BuoyDetail } from './buoys/buoy-detail/buoy-detail';
 import { BuoyEdit } from './buoys/buoy-edit/buoy-edit';
+import { ProjectList } from './projects/project-list/project-list';
+import { ProjectItem } from './projects/project-item/project-item';
+import { ProjectDetail } from './projects/project-detail/project-detail';
+import { ProjectEdit } from './projects/project-edit/project-edit';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { BuoyEdit } from './buoys/buoy-edit/buoy-edit';
     BuoyItem,
     BuoyDetail,
     BuoyEdit,
+    ProjectList,
+    ProjectItem,
+    ProjectDetail,
+    ProjectEdit,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
