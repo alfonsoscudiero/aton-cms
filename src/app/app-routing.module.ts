@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { Lanterns } from './lanterns/lanterns';
+import { LanternDetail } from './lanterns/lantern-detail/lantern-detail';
+import { LanternEdit } from './lanterns/lantern-edit/lantern-edit';
 import { Buoys } from './buoys/buoys';
 import { BuoyDetail } from './buoys/buoy-detail/buoy-detail';
 import { BuoyEdit } from './buoys/buoy-edit/buoy-edit';
@@ -11,7 +13,13 @@ import { ProjectEdit } from './projects/project-edit/project-edit';
 
 const routes: Routes = [
   { path: '', redirectTo: '/lanterns', pathMatch: 'full' },
-  { path: 'lanterns', component: Lanterns },
+  { path: 'lanterns', component: Lanterns,
+    children: [
+    { path: 'new', component: LanternEdit },
+    { path: ':id', component: LanternDetail },
+    { path: ':id/edit', component: LanternEdit },
+  ],
+  },
   { path: 'buoys', component: Buoys,
     children: [
       { path: 'new', component: BuoyEdit },
