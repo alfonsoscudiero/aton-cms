@@ -1,24 +1,11 @@
 <div class="container mt-5">
   <div class="row g-5">
     <div class="col-md-6">
-      <aton-lantern-list
-        [selectedLantern]="selectedLantern"
-        (lanternSelected)="onLanternSelected($event)"
-        (newLanternSelected)="onNewLantern()">
-      </aton-lantern-list>
+      <aton-lantern-list></aton-lantern-list>
     </div>
 
     <div class="col-md-5">
-      <aton-lantern-detail 
-        *ngIf="!showEdit"
-        [lantern]="selectedLantern"
-        (editLanternSelected)="onEditLantern()"
-        (deleteLanternSelected)="onDeleteLantern($event)">                
-      </aton-lantern-detail>
-
-      <aton-lantern-edit
-        *ngIf="showEdit">        
-      </aton-lantern-edit>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
