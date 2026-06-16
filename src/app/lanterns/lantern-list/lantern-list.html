@@ -11,15 +11,10 @@
   </div>
 
   <div class="card-body">
-
-    <div
+    <aton-lantern-item
       *ngFor="let lantern of lanterns"
-      class="lantern-row"
-      [routerLink]="['/lanterns', lantern.id]"
-      routerLinkActive="active">
-      <p>{{ lantern.model }} - {{ lantern.type }}</p>
-    </div>
-
+      [lantern]="lantern">
+    </aton-lantern-item>
   </div>
 
 </div>

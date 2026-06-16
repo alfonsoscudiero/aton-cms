@@ -1,1 +1,7 @@
-<p>lantern-item works!</p>
+<div
+  class="lantern-row"
+  [routerLink]="['/lanterns', lantern.id]"
+  routerLinkActive="active"
+>
+  <p>{{ lantern.model }} - {{ lantern.type }}</p>
+</div>

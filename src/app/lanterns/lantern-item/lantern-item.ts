@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Lantern } from '../lantern.model';
 
 @Component({
   selector: 'aton-lantern-item',
@@ -6,4 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: './lantern-item.html',
   styleUrl: './lantern-item.css',
 })
-export class LanternItem {}
+export class LanternItem {
+  @Input() lantern!: Lantern;
+}
