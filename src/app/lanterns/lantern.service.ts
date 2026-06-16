@@ -1,12 +1,14 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
 import { Lantern } from './lantern.model';
 import { MOCKLANTERNS } from './MOCKLANTERNS';
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class LanternService {
-  lanternChangedEvent = new EventEmitter<Lantern[]>();
+  lanternChangedEvent = new Subject<Lantern[]>();
 
   private lanterns: Lantern[] = MOCKLANTERNS;
 
@@ -19,17 +21,11 @@ export class LanternService {
   }
 
   deleteLantern(lantern: Lantern): void {
-    if (!lantern) {
-      return;
-    }
-
     const index = this.lanterns.indexOf(lantern);
 
-    if (index < 0) {
-      return;
+    if (index !== -1) {
+      this.lanterns.splice(index, 1);
+      this.lanternChangedEvent.next(this.lanterns.slice());
     }
-
-    this.lanterns.splice(index, 1);
-    this.lanternChangedEvent.emit(this.lanterns.slice());
   }
 }
