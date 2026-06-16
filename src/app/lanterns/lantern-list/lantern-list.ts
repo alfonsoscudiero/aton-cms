@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Lantern } from '../lantern.model';
 import { LanternService } from '../lantern.service';
 
@@ -9,15 +11,12 @@ import { LanternService } from '../lantern.service';
   styleUrl: './lantern-list.css',
 })
 export class LanternList implements OnInit {
-
   lanterns: Lantern[] = [];
 
-  @Input() selectedLantern?: Lantern;
-
-  @Output() lanternSelected = new EventEmitter<Lantern>();
-  @Output() newLanternSelected = new EventEmitter<void>();
-
-  constructor(private lanternService: LanternService) {}
+  constructor(
+    private lanternService: LanternService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.lanternService.lanternChangedEvent.subscribe(
@@ -29,11 +28,7 @@ export class LanternList implements OnInit {
     this.lanterns = this.lanternService.getLanterns();
   }
 
-  onSelectedLantern(lantern: Lantern): void {
-    this.lanternSelected.emit(lantern);
-  }
-
   onNewLantern(): void {
-    this.newLanternSelected.emit();
+    this.router.navigate(['/lanterns/new']);
   }
 }

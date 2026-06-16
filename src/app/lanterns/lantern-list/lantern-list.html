@@ -5,8 +5,8 @@
 
     <button 
       class="btn btn-success"
-      (click)="onNewLantern()">
-        Add New
+      routerLink="/lanterns/new">
+      Add New
     </button>
   </div>
 
@@ -15,9 +15,8 @@
     <div
       *ngFor="let lantern of lanterns"
       class="lantern-row"
-      [class.active]="lantern.id === selectedLantern?.id"
-      (click)="onSelectedLantern(lantern)"
-    >
+      [routerLink]="['/lanterns', lantern.id]"
+      routerLinkActive="active">
       <p>{{ lantern.model }} - {{ lantern.type }}</p>
     </div>
 
