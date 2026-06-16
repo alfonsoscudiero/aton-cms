@@ -22,8 +22,8 @@
 
     <a 
       class="btn btn-outline-primary"
-      (click)="onEditLantern()">
-        Edit
+      [routerLink]="['/lanterns', lantern.id, 'edit']">
+      Edit
     </a>
 
     <button 

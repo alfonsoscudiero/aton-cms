@@ -1,5 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { Lantern } from '../lantern.model';
+import { LanternService } from '../lantern.service';
 
 @Component({
   selector: 'aton-lantern-detail',
@@ -8,14 +11,19 @@ import { Lantern } from '../lantern.model';
   styleUrl: './lantern-detail.css',
 })
 export class LanternDetail {
+  lantern: Lantern | null = null;
 
-  @Input() lantern?: Lantern;
+  constructor(
+    private lanternService: LanternService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  @Output() editLanternSelected = new EventEmitter<void>();
-  @Output() deleteLanternSelected = new EventEmitter<Lantern>();
-
-  onEditLantern(): void {
-    this.editLanternSelected.emit();
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      const id = params['id'];
+      this.lantern = this.lanternService.getLantern(id);
+    });
   }
 
   onDeleteLantern(): void {
@@ -23,7 +31,7 @@ export class LanternDetail {
       return;
     }
 
-    this.deleteLanternSelected.emit(this.lantern);
+    this.lanternService.deleteLantern(this.lantern);
+    this.router.navigate(['/lanterns']);
   }
-
 }
