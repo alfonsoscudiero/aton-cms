@@ -19,6 +19,7 @@ import { ProjectList } from './projects/project-list/project-list';
 import { ProjectItem } from './projects/project-item/project-item';
 import { ProjectDetail } from './projects/project-detail/project-detail';
 import { ProjectEdit } from './projects/project-edit/project-edit';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,11 @@ import { ProjectEdit } from './projects/project-edit/project-edit';
     ProjectDetail,
     ProjectEdit,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
