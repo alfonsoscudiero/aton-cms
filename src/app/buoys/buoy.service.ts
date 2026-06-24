@@ -28,4 +28,34 @@ export class BuoyService {
       this.buoysChangedEvent.next(this.buoys.slice());
     }
   }
+
+  addBuoy(buoy: Buoy): void {
+    if (!buoy) {
+      return;
+    }
+
+    const maxId = this.buoys.reduce((max, currentBuoy) => {
+      const currentId = Number(currentBuoy.id);
+      return currentId > max ? currentId : max;
+    }, 0);
+
+    buoy.id = String(maxId + 1);
+
+    this.buoys.push(buoy);
+    this.buoysChangedEvent.next(this.buoys.slice());
+  }
+
+  updateBuoy(originalBuoy: Buoy, newBuoy: Buoy): void {
+    if (!originalBuoy || !newBuoy) {
+      return;
+    }
+
+    const index = this.buoys.indexOf(originalBuoy);
+
+    if (index !== -1) {
+      newBuoy.id = originalBuoy.id;
+      this.buoys[index] = newBuoy;
+      this.buoysChangedEvent.next(this.buoys.slice());
+    }
+  }
 }
