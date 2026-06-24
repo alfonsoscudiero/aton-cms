@@ -28,4 +28,34 @@ export class LanternService {
       this.lanternChangedEvent.next(this.lanterns.slice());
     }
   }
+
+  addLantern(lantern: Lantern): void {
+    if (!lantern) {
+      return;
+    }
+
+    const maxId = this.lanterns.reduce((max, currentLantern) => {
+      const currentId = Number(currentLantern.id);
+      return currentId > max ? currentId : max;
+    }, 0);
+
+    lantern.id = String(maxId + 1);
+
+    this.lanterns.push(lantern);
+    this.lanternChangedEvent.next(this.lanterns.slice());
+  }
+
+  updateLantern(originalLantern: Lantern, newLantern: Lantern): void {
+    if (!originalLantern || !newLantern) {
+      return;
+    }
+
+    const index = this.lanterns.indexOf(originalLantern);
+
+    if (index !== -1) {
+      newLantern.id = originalLantern.id;
+      this.lanterns[index] = newLantern;
+      this.lanternChangedEvent.next(this.lanterns.slice());
+    }
+  }
 }
