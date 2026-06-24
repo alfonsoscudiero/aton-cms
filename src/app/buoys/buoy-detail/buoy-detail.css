@@ -23,6 +23,13 @@
   color: #64748b;
 }
 
+.buoy-id {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
 .buoy-image {
   max-width: 140px;
   max-height: 140px;
